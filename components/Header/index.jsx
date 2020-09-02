@@ -19,7 +19,11 @@ export default function Header() {
                 <div className={`z-10 fixed inset-0 transition-opacity ${sidebarOn ? "" : "hidden"}`} onClick={() => setSidebarOn(false)}>
                     <div className="absolute inset-0 bg-black opacity-50" />
                 </div>
-                <Sidebar className={`transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 ${sidebarOn ? "translate-x-0" : "-translate-x-full"}`} />
+                <Sidebar
+                    sidebarIsOpen={sidebarOn}
+                    setSidebarIsOpen={setSidebarOn}
+                    className={`transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 ${sidebarOn ? "translate-x-0" : "-translate-x-full"}`}
+                />
             </nav>
         </header>
     );
