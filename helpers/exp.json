@@ -1,0 +1,48 @@
+{
+    "functionalities": [
+        {
+            "id": 1,
+            "url": "/loja",
+            "name": "Loja",
+            "submenu": true,
+            "order": 1,
+            "subfunctionalities": [
+                {
+                    "id": 1,
+                    "name": "Produtos",
+                    "url": "/produtos",
+                    "nivel_por_subfuncionalidade": {
+                        "id": 183,
+                        "subfuncionalidade_id": 1,
+                        "nivel_id": 1,
+                        "acoes_custom": "{}",
+                        "filtros_custom": "{}",
+                        "campos_custom": "{}"
+                    }
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "url": "/pedidos",
+            "name": "Pedidos",
+            "submenu": false,
+            "order": 2,
+            "subfunctionalities": [
+                {
+                    "id": 2,
+                    "name": "pedidos",
+                    "url": "",
+                    "nivel_por_subfuncionalidade": {
+                        "id": 184,
+                        "subfuncionalidade_id": 2,
+                        "nivel_id": 1,
+                        "acoes_custom": "{\"criar\": true}",
+                        "filtros_custom": "{}",
+                        "campos_custom": "{}"
+                    }
+                }
+            ]
+        }
+    ]
+}
