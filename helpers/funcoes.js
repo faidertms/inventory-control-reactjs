@@ -112,7 +112,7 @@ export const selectStyle = {
     }),
     menuPortal: styles => ({
         ...styles,
-        zIndex: 999999
+        zIndex: "999999"
     }),
 };
 
@@ -153,7 +153,6 @@ export function montarDiaDaSemanaSelect(inicio, fim) {
     }
     return semana;
 }
-
 
 export function jsonToFormData(data, metodo) {
     const formData = new FormData();

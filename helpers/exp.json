@@ -1,4 +1,126 @@
 {
+    "filiais": [
+        {
+            "external_code": "001",
+            "identification_number": "60026699303",
+            "company_name": "Teste LTDA",
+            "trade_name": "Teste",
+            "address": "Avenida teste da roça",
+            "address_number": "1855",
+            "area": "Aldeota",
+            "zip_code": 60000000,
+            "complement": "casa",
+            "city": "Fortaleza",
+            "state": "CE",
+            "country": "Brasil",
+            "phone": "(85)99999-9999"
+        },
+        {
+            "external_code": "001",
+            "identification_number": "60026699303",
+            "company_name": "Teste LTDA",
+            "trade_name": "Teste",
+            "address": "Avenida teste da roça",
+            "address_number": "1855",
+            "area": "Aldeota",
+            "zip_code": 60000000,
+            "complement": "casa",
+            "city": "Fortaleza",
+            "state": "CE",
+            "country": "Brasil",
+            "phone": "(85)99999-9999"
+        },
+        {
+            "external_code": "001",
+            "identification_number": "60026699303",
+            "company_name": "Teste LTDA",
+            "trade_name": "Teste",
+            "address": "Avenida teste da roça",
+            "address_number": "1855",
+            "area": "Aldeota",
+            "zip_code": 60000000,
+            "complement": "casa",
+            "city": "Fortaleza",
+            "state": "CE",
+            "country": "Brasil",
+            "phone": "(85)99999-9999"
+        },
+        {
+            "external_code": "001",
+            "identification_number": "60026699303",
+            "company_name": "Teste LTDA",
+            "trade_name": "Teste",
+            "address": "Avenida teste da roça",
+            "address_number": "1855",
+            "area": "Aldeota",
+            "zip_code": 60000000,
+            "complement": "casa",
+            "city": "Fortaleza",
+            "state": "CE",
+            "country": "Brasil",
+            "phone": "(85)99999-9999"
+        },
+        {
+            "external_code": "001",
+            "identification_number": "60026699303",
+            "company_name": "Teste LTDA",
+            "trade_name": "Teste",
+            "address": "Avenida teste da roça",
+            "address_number": "1855",
+            "area": "Aldeota",
+            "zip_code": 60000000,
+            "complement": "casa",
+            "city": "Fortaleza",
+            "state": "CE",
+            "country": "Brasil",
+            "phone": "(85)99999-9999"
+        },
+        {
+            "external_code": "001",
+            "identification_number": "60026699303",
+            "company_name": "Teste LTDA",
+            "trade_name": "Teste",
+            "address": "Avenida teste da roça",
+            "address_number": "1855",
+            "area": "Aldeota",
+            "zip_code": 60000000,
+            "complement": "casa",
+            "city": "Fortaleza",
+            "state": "CE",
+            "country": "Brasil",
+            "phone": "(85)99999-9999"
+        },
+        {
+            "external_code": "001",
+            "identification_number": "60026699303",
+            "company_name": "Teste LTDA",
+            "trade_name": "Teste",
+            "address": "Avenida teste da roça",
+            "address_number": "1855",
+            "area": "Aldeota",
+            "zip_code": 60000000,
+            "complement": "casa",
+            "city": "Fortaleza",
+            "state": "CE",
+            "country": "Brasil",
+            "phone": "(85)99999-9999"
+        },
+        {
+            "external_code": "001",
+            "identification_number": "60026699303",
+            "company_name": "Teste LTDA",
+            "trade_name": "Teste",
+            "address": "Avenida teste da roça",
+            "address_number": "1855",
+            "area": "Aldeota",
+            "zip_code": 60000000,
+            "complement": "casa",
+            "city": "Fortaleza",
+            "state": "CE",
+            "country": "Brasil",
+            "phone": "(85)99999-9999"
+        }
+    ],
     "functionalities": [
         {
             "id": 1,
@@ -9,8 +131,47 @@
             "subfunctionalities": [
                 {
                     "id": 1,
+                    "name": "Filiais",
+                    "url": "/filiais",
+                    "nivel_por_subfuncionalidade": {
+                        "id": 183,
+                        "subfuncionalidade_id": 1,
+                        "nivel_id": 1,
+                        "acoes_custom": "{}",
+                        "filtros_custom": "{}",
+                        "campos_custom": "{}"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "Categorias",
+                    "url": "/categorias",
+                    "nivel_por_subfuncionalidade": {
+                        "id": 183,
+                        "subfuncionalidade_id": 1,
+                        "nivel_id": 1,
+                        "acoes_custom": "{}",
+                        "filtros_custom": "{}",
+                        "campos_custom": "{}"
+                    }
+                },
+                {
+                    "id": 1,
                     "name": "Produtos",
                     "url": "/produtos",
+                    "nivel_por_subfuncionalidade": {
+                        "id": 183,
+                        "subfuncionalidade_id": 1,
+                        "nivel_id": 1,
+                        "acoes_custom": "{}",
+                        "filtros_custom": "{}",
+                        "campos_custom": "{}"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "Estoque",
+                    "url": "/estoque",
                     "nivel_por_subfuncionalidade": {
                         "id": 183,
                         "subfuncionalidade_id": 1,

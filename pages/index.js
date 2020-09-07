@@ -1,17 +1,11 @@
 import Head from 'next/head';
 import Header from '../components/Header';
+import { Fragment } from 'react';
 
 export default function Home() {
     return (
-        <div>
-            <Head>
-                <title>Create Next App</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+        <Fragment>
             <Header />
-
-
-
             <main className="p-6" >
 
                 <div className="max-w-sm rounded overflow-hidden shadow-lg">
@@ -124,7 +118,7 @@ export default function Home() {
             <footer>
 
             </footer>
-        </div>
+        </Fragment>
     )
 }
 

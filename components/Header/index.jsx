@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Sidebar from '../Sidebar';
+import Head from 'next/head';
 
 export default function Header() {
 
@@ -7,6 +8,10 @@ export default function Header() {
 
     return (
         <header className="sticky top-0 z-10">
+            <Head>
+                <title>Controle De Estoque</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <nav className="shadow-sm shadow-md flex items-center justify-between flex-wrap p-6 bg-white text-gray-700">
                 <div className="flex items-center flex-shrink-0 mr-6">
                     <span className="font-semibold text-xl tracking-tight">Controle de Estoque</span>

@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root{
-  --body-color: #ffffff;
+  --body-color: #f7fafc;
 }
 
 html,

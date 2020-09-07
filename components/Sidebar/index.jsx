@@ -1,12 +1,13 @@
 import React from 'react'
 import NavItem from './NavItem';
+import { functionalities as functionalitiesExp } from '../../helpers/exp.json'
 // import { connect } from 'react-redux'
 // import * as actionsRedux from '../Store/Actions/index'
 
-import funcionalitiesExp from '../../helpers/exp.json'
+
 function Sidebar({
     className = "transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto z-30",
-    funcionalities = funcionalitiesExp,
+    functionalities = functionalitiesExp,
     sidebarIsOpen,
     setSidebarIsOpen,
     logout
@@ -15,12 +16,12 @@ function Sidebar({
         // flex columns
         <aside className={className}>
             <ul>
-                {funcionalities.map(element => (
+                {functionalities.map(element => (
                     <NavItem
                         {...element}
                         setSidebarIsOpen={setSidebarIsOpen}
                         sidebarIsOpen={sidebarIsOpen}
-                        key={element.descricao}
+                        key={element.url}
                     />
                 ))}
                 <NavItem
