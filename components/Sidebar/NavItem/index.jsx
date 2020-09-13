@@ -43,14 +43,14 @@ export default function NavItem({
 
     return submenu ? (
         <Fragment>
-            <li className="flex w-full items-center p-4 border-b hover:bg-blue-200" onClick={() => setIsOpen(!isOpen)}>
+            <li className="flex w-full items-center p-4 border-b hover:bg-blue-200 cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
                 <ItemIcon iconName={name} />
                 <a>{name} </a>
                 <IoMdArrowDropdown size="1.3rem" className={`ml-auto transition duration-300 ease-in-out ${isOpen ? "transform rotate-180" : ""}`} />
             </li>
             {isOpen && subfunctionalities.map((element, index) => (
-                <Link href={url + element.url} key={element.url}>
-                    <li className="flex w-full items-center py-2 px-8 border-b text-sm bg-gray-200 hover:bg-gray-400">
+                <Link href={url + element.url} key={element.url} shallow>
+                    <li className="flex w-full items-center py-2 px-8 border-b text-sm bg-gray-200 hover:bg-gray-400 cursor-pointer">
                         <ItemIcon iconName={element.name} />
                         <a>{element.name}</a>
                     </li>
@@ -59,7 +59,7 @@ export default function NavItem({
         </Fragment>
     ) : (
             <Link href={url}>
-                <li className="flex w-full items-center p-4 border-b hover:bg-blue-200">
+                <li className="flex w-full items-center p-4 border-b hover:bg-blue-200 cursor-pointer">
                     <ItemIcon iconName={name} />
                     <a>{name}</a>
                 </li>
