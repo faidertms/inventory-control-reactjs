@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import Header from '../../../components/Header';
 import { filiais as filiaisExp } from '../../../helpers/exp.json'
 import PaginationLinks from '../../../components/PaginationLinks';
-import { useRouter, NextRouter } from "next/router";
+import { useRouter } from "next/router";
 import { usePagination } from '../../../Hooks/pagination';
 import FilialCard from './FilialCard'
 
@@ -31,10 +31,10 @@ export default function Home() {
         prevPage,
     } = usePagination({
         data: data,
-        currentPage: getCurrentPageNumeric()
-    })
+        currentPage: getCurrentPageNumeric(),
+        itemsPerPage: 25
+    });
 
-    console.log(currentPage)
     return (
         <Fragment>
             <Header />

@@ -8,7 +8,6 @@ type PaginationProps = {
     data: Array<any>
 }
 
-
 interface PaginationState {
     currentPage: number,
     itemsPerPage: number,

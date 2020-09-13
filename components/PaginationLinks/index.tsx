@@ -51,7 +51,7 @@ export default function PaginationLinks({ currentPage, numberOfPages, url, items
         <div>
             <ul className="flex justify-center flex-wrap max-w-xl my-4 mx-auto bg-white text-gray-700" >
                 <PaginationLink
-                    className="flex-auto flex justify-center rounded-l border"
+                    className="flex-auto flex justify-center rounded-l border hover:bg-blue-200"
                     url={url}
                     query={{
                         currentPage: 1,
@@ -62,7 +62,7 @@ export default function PaginationLinks({ currentPage, numberOfPages, url, items
                 </PaginationLink>
 
                 <PaginationLink
-                    className=" flex-auto flex justify-center border border-l-0"
+                    className=" flex-auto flex justify-center border border-l-0 hover:bg-blue-200"
                     url={url}
                     query={{
                         currentPage: currentPage - 1,
@@ -73,7 +73,7 @@ export default function PaginationLinks({ currentPage, numberOfPages, url, items
                 </PaginationLink>
                 {generatePagesLinks()}
                 <PaginationLink
-                    className="flex-auto flex justify-center border border-l-0"
+                    className="flex-auto flex justify-center border border-l-0 hover:bg-blue-200"
                     url={url}
                     query={{
                         currentPage: currentPage + 1,
@@ -84,7 +84,7 @@ export default function PaginationLinks({ currentPage, numberOfPages, url, items
                 </PaginationLink>
 
                 <PaginationLink
-                    className="flex-auto flex justify-center  rounded-r border border-l-0"
+                    className="flex-auto flex justify-center  rounded-r border border-l-0 hover:bg-blue-200"
                     url={url}
                     query={{
                         currentPage: numberOfPages,
