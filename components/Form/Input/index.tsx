@@ -2,21 +2,12 @@ import React from 'react';
 import styled from "styled-components";
 
 interface Props {
-    wrapperClassName?: string
-    labelClassName?: string
-    className?: string
     name: string,
     label: string,
     type: string,
+    onChange: (event) => void,
     required?: boolean,
 }
-
-
-// line-height: 2;
-// text-align: left;
-// display: block;
-// margin-bottom: 13px;
-// margin-top: 20px;
 
 const Input = styled.input`
     display: block;
@@ -36,20 +27,20 @@ const Label = styled.label`
     display: inline-block;
     margin-bottom: .5rem;
 `
-
+const Wrapper =  styled.div`
+    margin-bottom: .5rem;
+`
 export default function index({
-    wrapperClassName,
-    labelClassName,
-    className,
     name,
     label,
     type,
+    onChange,
     required,
 }: Props): JSX.Element {
     return (
-        <div className={wrapperClassName}>
-            <Label htmlFor={name}>{label}</Label>
-            <Input name={name} type={type} />
-        </div>
+        <Wrapper>
+            <Label htmlFor={name} >{label}</Label>
+            <Input name={name} type={type} onChange={onChange} />
+        </Wrapper>
     );
 }
