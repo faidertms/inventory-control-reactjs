@@ -1,14 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
 
-interface Props {
-    name: string,
-    label: string,
-    type: string,
-    onChange: (event) => void,
-    required?: boolean,
-}
-
 const Input = styled.input`
     display: block;
     width: 100%;
@@ -22,25 +14,52 @@ const Input = styled.input`
     border: 1px solid #ced4da;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-`
+`;
 const Label = styled.label`
     display: inline-block;
     margin-bottom: .5rem;
-`
-const Wrapper =  styled.div`
+`;
+const Wrapper = styled.div`
     margin-bottom: .5rem;
-`
+`;
+
+interface Props {
+    name: string,
+    label: string,
+    type: string,
+    placeholder?: string,
+    value?: string | number
+    defaultValue?: string | number
+    onChange: ({ }: { name: string, value: any, event: React.ChangeEvent<HTMLInputElement> }) => void,
+    required?: boolean,
+};
+
 export default function index({
     name,
     label,
     type,
     onChange,
+    placeholder,
+    value,
+    defaultValue,
     required,
 }: Props): JSX.Element {
+
+    const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
+        const { name, value } = event.target;
+        onChange({ value, name, event });
+    }
     return (
         <Wrapper>
             <Label htmlFor={name} >{label}</Label>
-            <Input name={name} type={type} onChange={onChange} />
+            <Input
+                name={name}
+                type={type}
+                onChange={onChangeInput}
+                placeholder={placeholder}
+                value={value}
+                defaultValue={defaultValue}
+            />
         </Wrapper>
     );
 }

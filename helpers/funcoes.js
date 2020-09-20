@@ -70,52 +70,6 @@ export const cores = [
     '#FF5648', // vermelho claro
 ];
 
-
-export const selectStyle = {
-    control: (styles, state) => {
-        const focusStyle = state.isFocused ? {
-            color: "#495057 !important",
-            backgroundColor: "#fff !important",
-            borderColor: "#80bdff !important",
-            outline: 0,
-            boxShadow: "0 0 0 0.2rem rgba(0,123,255,.25) !important",
-
-        } : {};
-        return ({
-            ...styles,
-            borderRadius: "0.7rem",
-            padding: ".375rem .75rem",
-            minHeight: "0px",
-            outline: 0,
-            boxShadow: "none",
-            height: (state.getValue().length > 1) ? undefined : "calc(1.5em + .75rem)",
-            flexWrap: "unset !important",
-            "&:hover": { boxShadow: "none", outline: 0 },
-            "&:focus": { boxShadow: "0", outline: 0, border: 'none' },
-            backgroundColor: state.isDisabled ? "#e9ecef" : styles.backgroundColor,
-            opacity: state.isDisabled ? 1 : styles.opacity,
-            ...focusStyle,
-        })
-    },
-    valueContainer: styles => ({
-        ...styles,
-        padding: "0px",
-        width: "100%",
-        outline: 0,
-        color: "black",
-        "&:hover": { boxShadow: "none", outline: 0 },
-        "&:focus": { boxShadow: "0", outline: 0 }
-    }),
-    input: styles => ({
-        ...styles,
-        height: "26px;"
-    }),
-    menuPortal: styles => ({
-        ...styles,
-        zIndex: "999999"
-    }),
-};
-
 export const convertToSlug = (text) => {
     const a = 'àáäâãèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;'
     const b = 'aaaaaeeeeiiiioooouuuuncsyoarsnpwgnmuxzh------'
