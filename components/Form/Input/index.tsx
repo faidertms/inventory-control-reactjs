@@ -28,10 +28,12 @@ interface Props {
     label: string,
     type: string,
     placeholder?: string,
-    value?: string | number
-    defaultValue?: string | number
+    value?: string | number,
+    defaultValue?: string | number,
+    maxLength?: string | number,
     onChange: ({ }: { name: string, value: any, event: React.ChangeEvent<HTMLInputElement> }) => void,
     required?: boolean,
+    readOnly?: boolean
 };
 
 export default function index({
@@ -42,7 +44,9 @@ export default function index({
     placeholder,
     value,
     defaultValue,
+    maxLength,
     required,
+    readOnly,
 }: Props): JSX.Element {
 
     const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -59,6 +63,8 @@ export default function index({
                 placeholder={placeholder}
                 value={value}
                 defaultValue={defaultValue}
+                maxLength={maxLength}
+                readOnly={readOnly}
             />
         </Wrapper>
     );

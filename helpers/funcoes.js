@@ -15,6 +15,26 @@ export const create_UUID = () => {
     return uuid;
 }
 
+export const cpfMask = value => {
+    return value
+        .replace(/\D/g, '')
+        .replace(/(\d{3})(\d)/, '$1.$2')
+        .replace(/(\d{3})(\d)/, '$1.$2')
+        .replace(/(\d{3})(\d{1,2})/, '$1-$2')
+        .replace(/(-\d{2})\d+?$/, '$1')
+}
+
+export const cnpjMask = value => {
+    return value
+        .replace(/\D/g, '')
+        .replace(/^(\d{2})(\d)/, "$1.$2")
+        .replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
+        .replace(/\.(\d{3})(\d)/, ".$1/$2")
+        .replace(/(\d{4})(\d)/, "$1-$2")
+}
+
+export const cpfCnpj = value => (value.length <= 14 ? cpfMask(value) : cnpjMask(value));
+
 export const formatarValor = (valor, formatter, qtdDecimal = 2) => {
     switch (formatter) {
         case "dinheiro":
