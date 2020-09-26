@@ -97,7 +97,6 @@ const SelectForm = ({
 
     const onChangeSelect = (value: ValueType<Option>, { action }: ActionTypes): void => {
         if (isMulti) {
-
             if (action === "select-option" && maxSelected) {
                 return;
             }

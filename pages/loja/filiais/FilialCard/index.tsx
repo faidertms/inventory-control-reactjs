@@ -40,12 +40,12 @@ export default function FilialCard({
 
                 <p className="flex justify-end text-gray-700 text-xs truncate">
                     <Link href="/loja/filiais/[id]/edit" as={`/loja/filiais/${id}/edit`} >
-                        <a className="text-center mr-2">
+                        <a className="hover:bg-blue-100 font-semibold px-4 border border-gray-400 rounded shadow mr-2">
                             Editar
                         </a>
                     </Link>
 
-                    <button className="text-center mr-2" onClick={() => removeFilial(id)}>
+                    <button className="hover:bg-blue-100 font-semibold px-4 border border-gray-400 rounded shadow mr-2" onClick={() => removeFilial(id)}>
                         Deletar
                     </button>
                 </p>
