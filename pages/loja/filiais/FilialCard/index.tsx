@@ -1,20 +1,13 @@
 
 import Link from 'next/link';
 import React from 'react';
+import { Filial } from '../../../../helpers/types';
 
-type Props = {
-    id: bigint,
-    trade_name: string,
-    company_name: string,
-    address: string,
-    address_number: string,
-    area: string,
-    zip_code: string,
-    city: string,
-    state: string,
-    phone: string,
-    removeFilial: (id: bigint) => void,
-}
+
+
+type Props = Filial & {
+    removeFilial: (id: number) => void
+};
 
 export default function FilialCard({
     id,

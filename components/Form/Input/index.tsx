@@ -30,13 +30,13 @@ interface Props {
     placeholder?: string,
     value?: string | number,
     defaultValue?: string | number,
-    maxLength?: string | number,
+    maxLength?: number,
     onChange: ({ }: { name: string, value: any, event: React.ChangeEvent<HTMLInputElement> }) => void,
     required?: boolean,
     readOnly?: boolean
 };
 
-export default function index({
+export default function InputForm({
     name,
     label,
     type,
@@ -45,7 +45,6 @@ export default function index({
     value,
     defaultValue,
     maxLength,
-    required,
     readOnly,
 }: Props): JSX.Element {
 

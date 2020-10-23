@@ -1,9 +1,8 @@
 import Axios from 'axios';
 import React, { Fragment, useState } from 'react';
-import styled from "styled-components";
 import Input from "../../../../../components/Form/Input";
 import Header from '../../../../../components/Header';
-import { cnpjMask } from '../../../../../helpers/funcoes';
+import { cnpjMask } from '../../../../../helpers/functions';
 
 type Props = {
 
@@ -31,8 +30,6 @@ type FilialState = {
     phone: string
 }
 
-
-
 export default function edit({ }: Props): JSX.Element {
     const [form, setForm] = useState<FilialState>({
         external_code: "",
@@ -50,7 +47,7 @@ export default function edit({ }: Props): JSX.Element {
         phone: ""
     });
 
-    //Migrar para service
+    //TODO - Migrar para service
     const findInformationsFromZipCode = async (zip_code: string): Promise<void> => {
         try {
             const response = await Axios.get(`https://viacep.com.br/ws/${zip_code}/json/`);
@@ -60,7 +57,7 @@ export default function edit({ }: Props): JSX.Element {
                 localidade,
                 uf,
             } = response.data;
-            setForm({ ...form, state: uf, city: localidade, area: bairro, address: logradouro });
+            setForm((prevForm) => ({ ...prevForm, state: uf, city: localidade, area: bairro, address: logradouro }));
         } catch (error) {
 
         }
@@ -85,16 +82,16 @@ export default function edit({ }: Props): JSX.Element {
         <Fragment>
             <Header />
             <main className="p-6" >
-               
+
                 <div className="rounded-md shadow-xs bg-white p-6">
                     <form>
-                    <div className="rounded-md shadow bg-white py-2 px-6 font-semibold mb-8 text-xl">
-                    Editar Filial
-                </div>
+                        <div className="rounded-md shadow bg-white py-2 px-6 font-semibold mb-8 text-xl">
+                            Editar Filial
+                        </div>
                         <Input name="external_code" value={form.external_code} label="Código:" type="text" onChange={handleChange} />
-                        <Input name="identification_number" value={form.identification_number} maxLength="18" label="CNPJ:" type="text" onChange={handleChange} />
+                        <Input name="identification_number" value={form.identification_number} maxLength={18} label="CNPJ:" type="text" onChange={handleChange} />
                         <Input name="company_name" value={form.company_name} label="Razão Sócial:" type="text" onChange={handleChange} />
-                        <Input name="trade_name" value={form.trade_name} maxLength="8" label="Nome Fantasia:" type="text" onChange={handleChange} />
+                        <Input name="trade_name" value={form.trade_name} maxLength={8} label="Nome Fantasia:" type="text" onChange={handleChange} />
                         <Input name="zip_code" value={form.zip_code} label="CEP:" type="text" onChange={handleChange} />
                         <Input name="address" value={form.address} label="Endereço:" type="text" onChange={handleChange} />
                         <Input name="address_number" value={form.address_number} label="Número:" type="text" onChange={handleChange} />

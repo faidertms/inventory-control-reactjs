@@ -1,22 +1,27 @@
 import React from 'react'
 import NavItem from './NavItem';
-import { functionalities as functionalitiesExp } from '../../helpers/exp.json'
-// import { connect } from 'react-redux'
-// import * as actionsRedux from '../Store/Actions/index'
+import { Functionality } from '../../helpers/types';
 
+type Props = {
+    className?: string,
+    functionalities: Array<Functionality>
+    sidebarIsOpen: boolean,
+    setSidebarIsOpen: (value: boolean) => void,
+    logout?: () => void
+}
 
 function Sidebar({
     className = "transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto z-30",
-    functionalities = functionalitiesExp,
+    functionalities,
     sidebarIsOpen,
     setSidebarIsOpen,
     logout
-}) {
+}: Props) {
     return (
         // flex columns
         <aside className={className}>
             <ul>
-                {functionalities.map(element => (
+                {functionalities.map((element: Functionality) => (
                     <NavItem
                         {...element}
                         setSidebarIsOpen={setSidebarIsOpen}
@@ -27,6 +32,7 @@ function Sidebar({
                 <NavItem
                     url={"/sair"}
                     name={"Sair"}
+                    submenu={false}
                     setSidebarIsOpen={setSidebarIsOpen}
                     sidebarIsOpen={sidebarIsOpen}
                     logout={logout}
@@ -35,18 +41,6 @@ function Sidebar({
         </aside>
     );
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         logout: () => dispatch(actionsRedux.logout()),
-//         ativarSidebar: (evento) => dispatch(actionsRedux.ativarSidebar(evento)),
-//     }
-// };
-
-// const mapStateToProps = (state) => ({
-//     modoMobile: state.core.modoMobile,
-//     sidebarAtivo: state.core.sidebarAtivo,
-// });
 
 export default Sidebar;
 

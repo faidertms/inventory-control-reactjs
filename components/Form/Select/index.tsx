@@ -13,6 +13,20 @@ type Option = {
     label: string;
 };
 
+type SelectProps = {
+    label?: string,
+    value: ValueType<Option>,
+    defaultValue?: ValueType<Option>,
+    options?: OptionsType<Option>,
+    name: string,
+    onChange: ({ name, value }: { name: string, value: any }) => void,
+    placeholder?: string,
+    maxOptionsSelected?: number,
+    isMulti?: boolean
+    isDisabled?: boolean,
+    menuPortalTarget?: HTMLElement
+};
+
 const selectStyle = {
     control: (styles: SelectStyle, state: CommonProps) => {
         const focusStyle = state.isFocused ? {
@@ -66,21 +80,7 @@ const Wrapper = styled.div`
     margin-bottom: .5rem;
 `;
 
-type SelectProps = {
-    label?: string,
-    value: ValueType<Option>,
-    defaultValue?: ValueType<Option>,
-    options?: OptionsType<Option>,
-    name: string,
-    onChange: ({ }: { name: string, value: any }) => void,
-    placeholder?: string,
-    maxOptionsSelected?: number,
-    isMulti?: boolean
-    isDisabled?: boolean,
-    menuPortalTarget?: HTMLElement
-};
-
-const SelectForm = ({
+function SelectForm({
     label,
     placeholder,
     onChange,
@@ -92,7 +92,7 @@ const SelectForm = ({
     isDisabled,
     menuPortalTarget,
 
-}: SelectProps) => {
+}: SelectProps): JSX.Element {
     const [maxSelected, setMaxSelected] = useState<boolean>(false);
 
     const onChangeSelect = (value: ValueType<Option>, { action }: ActionTypes): void => {

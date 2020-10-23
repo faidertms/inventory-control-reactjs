@@ -1,9 +1,0 @@
-.collapse {
-    transition: height 2s ease;
-    display: block;
-    height: 0;
-}
-
-.collapse.active {
-    height: auto;
-}
