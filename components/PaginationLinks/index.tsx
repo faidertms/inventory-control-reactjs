@@ -15,16 +15,13 @@ export default function PaginationLinks({ currentPage, numberOfPages, url, items
     const generatePagesLinks = (): JSX.Element[] => {
         const pages: JSX.Element[] = [];
         const range: number = 3;
-        let toIndex: number = currentPage + range;
-        let fromIndex: number = currentPage - range;
-
+        let toIndex: number = numberOfPages > (range * 2) ? currentPage + range : numberOfPages;
+        let fromIndex: number = numberOfPages > (range * 2) ? currentPage - range : 1;
 
         if (toIndex > numberOfPages) {
             fromIndex = numberOfPages - (range * 2);
             toIndex = numberOfPages;
-        }
-
-        if (fromIndex < 1) {
+        } else if (fromIndex < 1) {
             fromIndex = 1;
             toIndex = 1 + (range * 2);
         }

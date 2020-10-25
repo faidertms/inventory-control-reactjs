@@ -4,14 +4,12 @@ import { useState, useEffect } from 'react';
 type PaginationProps = {
     currentPage?: number,
     itemsPerPage?: number,
-    numberOfPages?: number,
     data: Array<any>
 }
 
 interface PaginationState {
     currentPage: number,
     itemsPerPage: number,
-    numberOfPages: number,
 }
 
 type PaginationReturn = {
@@ -24,69 +22,70 @@ type PaginationReturn = {
     goToPage: (page: number) => void,
     nextPage: () => void,
     prevPage: () => void,
-    updatePagination: ({ itemsPerPage, currentPage, numberOfPages }: PaginationState) => void
+    updatePagination: ({ itemsPerPage, currentPage }: PaginationState) => void
 }
 
 export function usePagination({
     currentPage = 1,
     itemsPerPage = 10,
-    numberOfPages,
     data
 }: PaginationProps): PaginationReturn {
 
     const [pagination, setPagination] = useState<PaginationState>({
-        itemsPerPage: itemsPerPage, // talvez nao precise ser state
-        numberOfPages: numberOfPages ?? Math.ceil(data.length / itemsPerPage), // talvez não precise ser state
+        itemsPerPage: itemsPerPage,
         currentPage: currentPage,
     });
+
+    const numberOfPages = Math.ceil(data.length / itemsPerPage);
 
     const paginateData = (): Array<any> => {
         const rows: Array<any> = [];
         const offset: number = (pagination.currentPage - 1) * pagination.itemsPerPage
         const toIndex: number = Math.min(offset + pagination.itemsPerPage, data.length);
-        console.log(toIndex)
+
         for (let index: number = offset; index < toIndex; index++) {
             rows.push(data[index] ?? null);
         }
+
         return rows;
     }
 
     const canPrevPage: boolean = currentPage >= 1;
-    const canNextPage: boolean = currentPage <= pagination.numberOfPages;
+    const canNextPage: boolean = currentPage <= numberOfPages;
 
     const nextPage = () => {
-        setPagination({ ...pagination, currentPage: canNextPage ? currentPage + 1 : pagination.numberOfPages });
+        setPagination((prevPagination) => ({ ...prevPagination, currentPage: canNextPage ? currentPage + 1 : numberOfPages }));
     }
 
     const prevPage = () => {
-        setPagination({ ...pagination, currentPage: canPrevPage ? currentPage - 1 : 1 });
+        setPagination((prevPagination) => ({ ...prevPagination, currentPage: canPrevPage ? currentPage - 1 : 1 }));
     }
 
     const goToPage = (page: number) => {
-        const currentPage: number = (page >= 1 && page <= pagination.numberOfPages) ? page : pagination.currentPage;
-        setPagination({ ...pagination, currentPage });
+        const currentPage: number = (page >= 1 && page <= numberOfPages) ? page : pagination.currentPage;
+        setPagination((prevPagination) => ({ ...prevPagination, currentPage }));
     }
 
     const updatePagination = ({
-        itemsPerPage = this.itemsPerPage, // talvez nao precise ser state
-        numberOfPages = this.numberOfPages ?? Math.ceil(this.data.length / this.itemsPerPage), // talvez não precise ser state
-        currentPage = this.currentPage
+        itemsPerPage,
+        currentPage
     }: PaginationState) => {
+        const numberOfPages = Math.ceil(data.length / itemsPerPage);
         setPagination({
             itemsPerPage,
-            numberOfPages,
-            currentPage
+            currentPage: currentPage > numberOfPages ? numberOfPages : currentPage
         });
     };
 
-    const rows: Array<any> = paginateData();
-
     useEffect(() => {
-        goToPage(currentPage)
-    }, [currentPage]);
+        updatePagination({ itemsPerPage, currentPage });
+    }, [currentPage, itemsPerPage]);
+
+    const rows: Array<any> = paginateData();
 
     return {
         rows,
+        numberOfPages,
         ...pagination,
         canPrevPage,
         canNextPage,

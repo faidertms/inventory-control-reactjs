@@ -3,7 +3,7 @@ import Header from '../../../components/Header';
 import { filiais as filiaisExp } from '../../../helpers/exp.json'
 import PaginationLinks from '../../../components/PaginationLinks';
 import { useRouter } from "next/router";
-import { usePagination } from '../../../Hooks/pagination';
+import { usePagination } from '../../../hooks/pagination';
 import FilialCard from './FilialCard'
 import { Filial } from '../../../helpers/types';
 
@@ -16,6 +16,10 @@ export default function Home() {
 
     const getCurrentPageNumeric = (): number => {
         return Number.isInteger(Number(query.currentPage)) ? Number(query.currentPage) : undefined;
+    }
+
+    const getItemsPerPageNumeric = (): number => {
+        return Number.isInteger(Number(query.itemsPerPage)) && Number(query.itemsPerPage) <= 100 ? Number(query.itemsPerPage) : 25;
     }
 
     const removeFilial = (id: number) => console.log(id);
@@ -33,7 +37,7 @@ export default function Home() {
     } = usePagination({
         data: data,
         currentPage: getCurrentPageNumeric(),
-        itemsPerPage: 25
+        itemsPerPage: getItemsPerPageNumeric(),
     });
 
     return (
