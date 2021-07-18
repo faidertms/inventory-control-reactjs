@@ -17,6 +17,51 @@
             "phone": "(85)99999-9999"
         }
     ],
+    "products": [
+        {
+            "id": 1,
+            "external_code": "001",
+            "name": "Blusa Topzera",
+            "description": "Uma blusa topzera pra nos"
+        }
+    ],
+    "colors": [
+        {
+            "id": 1,
+            "external_code": "001",
+            "name": "Preto",
+            "abbreviation": "PRT"
+        }
+    ],
+    "sizes": [
+        {
+            "id": 1,
+            "external_code": "001",
+            "name": "Médio",
+            "abbreviation": "M"
+        }
+    ],
+    "grid": [
+        {
+            "id": 1,
+            "external_code": "001",
+            "color_id": 1,
+            "size_id": 1,
+            "stock": 4,
+            "color": {
+                "id": 1,
+                "external_code": "001",
+                "name": "Preto",
+                "abbreviation": "PRT"
+            },
+            "size": {
+                "id": 1,
+                "external_code": "001",
+                "name": "Médio",
+                "abbreviation": "M"
+            }
+        }
+    ],
     "functionalities": [
         {
             "id": 1,
@@ -53,8 +98,47 @@
                 },
                 {
                     "id": 1,
-                    "name": "Produtos",
-                    "url": "/produtos",
+                    "name": "Products",
+                    "url": "/products",
+                    "nivel_por_subfuncionalidade": {
+                        "id": 183,
+                        "subfuncionalidade_id": 1,
+                        "nivel_id": 1,
+                        "acoes_custom": "{}",
+                        "filtros_custom": "{}",
+                        "campos_custom": "{}"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "Colors",
+                    "url": "/colors",
+                    "nivel_por_subfuncionalidade": {
+                        "id": 183,
+                        "subfuncionalidade_id": 1,
+                        "nivel_id": 1,
+                        "acoes_custom": "{}",
+                        "filtros_custom": "{}",
+                        "campos_custom": "{}"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "Sizes",
+                    "url": "/sizes",
+                    "nivel_por_subfuncionalidade": {
+                        "id": 183,
+                        "subfuncionalidade_id": 1,
+                        "nivel_id": 1,
+                        "acoes_custom": "{}",
+                        "filtros_custom": "{}",
+                        "campos_custom": "{}"
+                    }
+                },
+                {
+                    "id": 1,
+                    "name": "Grid",
+                    "url": "/grid",
                     "nivel_por_subfuncionalidade": {
                         "id": 183,
                         "subfuncionalidade_id": 1,

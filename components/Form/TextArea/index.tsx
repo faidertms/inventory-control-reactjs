@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
 
-const Input = styled.input`
+const TextArea = styled.textarea`
     display: block;
     width: 100%;
-    height: calc(1.5rem + .75rem + 2px);
+    height: calc(5.0rem + .75rem + 2px);
     padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -30,20 +30,18 @@ const Wrapper = styled.div`
 interface Props {
     name: string,
     label: string,
-    type: string,
     placeholder?: string,
     value?: string | number,
     defaultValue?: string | number,
     maxLength?: number,
-    onChange: ({ }: { name: string, value: any, event: React.ChangeEvent<HTMLInputElement> }) => void,
+    onChange: ({ }: { name: string, value: any, event: React.ChangeEvent<HTMLTextAreaElement> }) => void,
     required?: boolean,
     readOnly?: boolean
 };
 
-export default function InputForm({
+export default function TextAreaForm({
     name,
     label,
-    type,
     onChange,
     placeholder,
     value,
@@ -52,16 +50,15 @@ export default function InputForm({
     readOnly,
 }: Props): JSX.Element {
 
-    const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const onChangeInput = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
         const { name, value } = event.target;
         onChange({ value, name, event });
     }
     return (
         <Wrapper>
             <Label htmlFor={name} >{label}</Label>
-            <Input
+            <TextArea
                 name={name}
-                type={type}
                 onChange={onChangeInput}
                 placeholder={placeholder}
                 value={value}

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import Link from 'next/link'
 import { convertToSlug } from '../../../helpers/functions';
-import { FiLogOut, FiShoppingBag, FiPackage } from 'react-icons/fi';
-import { BiStoreAlt, BiStore } from "react-icons/bi";
+import { FiLogOut, FiShoppingBag, FiPackage, FiGrid } from 'react-icons/fi';
+import { BiStoreAlt, BiStore, BiRuler } from "react-icons/bi";
 import { AiOutlineGroup } from "react-icons/ai";
+import { HiOutlineColorSwatch } from "react-icons/hi";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { Subfunctionality } from '../../../helpers/types';
-
 
 type Props = {
     name: string,
@@ -26,7 +26,7 @@ function ItemIcon({ iconName }: ItemIconProps) {
     switch (convertToSlug(iconName)) {
         case 'loja':
             return <BiStoreAlt className="mr-2 w-6 h-6" />
-        case 'produtos':
+        case 'products':
             return <FiLogOut className="mr-2 w-4 h-4" />
         case 'estoque':
             return <FiPackage className="mr-2 w-4 h-4" />
@@ -34,6 +34,12 @@ function ItemIcon({ iconName }: ItemIconProps) {
             return <BiStore className="mr-2 w-4 h-4" />
         case 'categorias':
             return <AiOutlineGroup className="mr-2 w-4 h-4" />
+        case 'sizes':
+            return <BiRuler className="mr-2 w-4 h-4" />
+        case 'colors':
+            return <HiOutlineColorSwatch className="mr-2 w-4 h-4" />
+        case 'gride':
+            return <FiGrid className="mr-2 w-4 h-4" />
         case 'pedidos':
             return <FiShoppingBag className="mr-2 w-6 h-6" />
         case 'sair':
@@ -73,13 +79,13 @@ export default function NavItem({
             ))}
         </Fragment>
     ) : (
-            <Link href={url}>
-                <li className="flex w-full items-center p-4 border-b hover:bg-blue-200 cursor-pointer">
-                    <ItemIcon iconName={name} />
-                    <a>{name}</a>
-                </li>
-            </Link>
-        );
+        <Link href={url}>
+            <li className="flex w-full items-center p-4 border-b hover:bg-blue-200 cursor-pointer">
+                <ItemIcon iconName={name} />
+                <a>{name}</a>
+            </li>
+        </Link>
+    );
 }
 
 
